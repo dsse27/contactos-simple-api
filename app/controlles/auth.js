@@ -7,6 +7,7 @@ const userModel = require('../models/users')
 const loginCtrl = async (req, res) => {
     try {
         const { email, password } = req.body
+        console.log(`Conectando con ${email} y contraseña ${password}`)
 
         const user = await userModel.findOne({ email })
 
