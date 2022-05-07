@@ -13,10 +13,13 @@ const dbConnect = () => {
         useUnifiedTopology: true,
         serverApi: ServerApiVersion.v1
     });
+    
     client.connect(err => {
-        const collection = client.db("test").collection("devices");
-        // perform actions on the collection object
-        console.log("Conectado con exito!");
+        if (!err)
+            console.log("Conectado con exito a MongoDB Atlas!");
+        else
+            console.log("Error de Conexión => ", err);
+
         client.close();
     });
 }
